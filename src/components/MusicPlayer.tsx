@@ -1,26 +1,21 @@
 import React from 'react';
-import { useQuery } from 'react-query';
 import ReactPlayer from 'react-player';
-import { fetchTrackInfo } from '@/services/tracks';
-
+import { useTrackInfo } from '@/hooks/useTrackInfo';
 export const MusicPlayer = ({
   trackId,
   onClose,
 }: {
-  trackId: string | null;
+  trackId: string;
   onClose: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
-  const {
-    data: trackInfo,
-    isLoading,
-    error,
-  } = useQuery(['trackInfo', trackId!, 'magicTokenWip'], fetchTrackInfo, {
-    enabled: !!trackId,
-  });
+  const { data: trackInfo, isLoading, error } = useTrackInfo(trackId);
 
   if (isLoading) return <div>Cargando...</div>;
   if (error instanceof Error)
     return <div>Estamos teniendo problemas, prueba más tarde</div>;
+
+  if (!trackInfo)
+    return <div>No se pudo obtener la información de la canción.</div>;
 
   return (
     <div>
