@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import React, { useState } from 'react';
 import { SongDetails } from '@/components/SongDetails';
 import { MusicPlayer } from '@/components/MusicPlayer';
+import { MusicProvider } from './contexts/MusicContext';
 
 const queryClient = new QueryClient();
 
@@ -22,19 +23,21 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="music-app">
-        <div
-          className={`main-content ${selectedTrack && isSongDetailsOpen ? 'with-sidebar' : ''}`}
-        ></div>
+      <MusicProvider>
+        <div className="music-app">
+          <div
+            className={`main-content ${selectedTrack && isSongDetailsOpen ? 'with-sidebar' : ''}`}
+          ></div>
 
-        {selectedTrack && isSongDetailsOpen && (
-          <SongDetails songId={selectedTrack} onClose={closeSongDetails} />
-        )}
+          {selectedTrack && isSongDetailsOpen && (
+            <SongDetails trackId={selectedTrack} onClose={closeSongDetails} />
+          )}
 
-        {isPlayerOpen && (
-          <MusicPlayer trackId={selectedTrack} onClose={closePlayer} />
-        )}
-      </div>
+          {isPlayerOpen && selectedTrack !== null && (
+            <MusicPlayer trackId={selectedTrack} onClose={closePlayer} />
+          )}
+        </div>
+      </MusicProvider>
     </QueryClientProvider>
   );
 }
