@@ -1,16 +1,16 @@
 import React from 'react';
 
 export const SongDetails = ({
-  songId,
+  trackId,
   onClose,
 }: {
-  songId: string;
+  trackId: string;
   onClose: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
   return (
     <div>
       <h1>Song Details</h1>
-      <p>{songId}</p>
+      <p>{trackId}</p>
       <button onClick={onClose} />
     </div>
   );
