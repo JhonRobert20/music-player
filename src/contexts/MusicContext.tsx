@@ -1,13 +1,12 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface MusicContextType {
-  selectedSong: string | null;
   isSongDetailsOpen: boolean;
   isPlayerOpen: boolean;
-  setSelectedSong: (songId: string | null) => void;
   setIsSongDetailsOpen: (isOpen: boolean) => void;
   setIsPlayerOpen: (isOpen: boolean) => void;
   closeAll: () => void;
+  closeSongDetails: () => void;
 }
 
 const MusicContext = createContext<MusicContextType | undefined>(undefined);
@@ -15,26 +14,27 @@ const MusicContext = createContext<MusicContextType | undefined>(undefined);
 export const MusicProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [selectedSong, setSelectedSong] = useState<string | null>(null);
   const [isSongDetailsOpen, setIsSongDetailsOpen] = useState<boolean>(false);
   const [isPlayerOpen, setIsPlayerOpen] = useState<boolean>(false);
+
+  const closeSongDetails = () => {
+    setIsSongDetailsOpen(false);
+  };
 
   const closeAll = () => {
     setIsSongDetailsOpen(false);
     setIsPlayerOpen(false);
-    setSelectedSong(null);
   };
 
   return (
     <MusicContext.Provider
       value={{
-        selectedSong,
         isSongDetailsOpen,
         isPlayerOpen,
-        setSelectedSong,
         setIsSongDetailsOpen,
         setIsPlayerOpen,
         closeAll,
+        closeSongDetails,
       }}
     >
       {children}
