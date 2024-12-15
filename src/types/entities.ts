@@ -16,3 +16,25 @@ export type Track = {
   };
   preview: string;
 };
+
+export type SearchTrack = {
+  id: number;
+  title: string;
+  title_short: string;
+  duration: number;
+  rank: number;
+  explicit_lyrics: boolean;
+  preview: string;
+  artist: {
+    name: string;
+    picture: string;
+  };
+  album: {
+    title: string;
+    cover: string;
+  };
+};
+
+export type SearchResults = {
+  data: SearchTrack[];
+};
