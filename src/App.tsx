@@ -1,43 +1,32 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
-import React, { useState } from 'react';
+import React from 'react';
 import { SongDetails } from '@/components/SongDetails';
 import { MusicPlayer } from '@/components/MusicPlayer';
-import { MusicProvider } from './contexts/MusicContext';
+import { MusicProvider } from '@/contexts/MusicContext';
+import { SelectedSongProvider } from '@/contexts/SelectedSongContext';
+import { SearchProvider } from '@/contexts/SearchContext';
+import { SearchResult } from '@/components/SearchResults';
+import { Navbar } from '@/components/Navbar';
 
 const queryClient = new QueryClient();
 
 export default function App() {
-  const [selectedTrack, setselectedTrack] = useState<string | null>(null);
-  const [isSongDetailsOpen, setIsSongDetailsOpen] = useState<boolean>(false);
-  const [isPlayerOpen, setIsPlayerOpen] = useState<boolean>(false);
-
-  const closeSongDetails = () => {
-    setIsSongDetailsOpen(false);
-  };
-
-  const closePlayer = () => {
-    setIsSongDetailsOpen(false);
-    setIsPlayerOpen(false);
-    setselectedTrack(null);
-  };
-
   return (
     <QueryClientProvider client={queryClient}>
-      <MusicProvider>
+      <SearchProvider>
         <div className="music-app">
-          <div
-            className={`main-content ${selectedTrack && isSongDetailsOpen ? 'with-sidebar' : ''}`}
-          ></div>
-
-          {selectedTrack && isSongDetailsOpen && (
-            <SongDetails trackId={selectedTrack} onClose={closeSongDetails} />
-          )}
-
-          {isPlayerOpen && selectedTrack !== null && (
-            <MusicPlayer trackId={selectedTrack} onClose={closePlayer} />
-          )}
+          <Navbar />
+          <SelectedSongProvider>
+            <MusicProvider>
+              <div>
+                <SearchResult />
+                <SongDetails />
+              </div>
+              <MusicPlayer />
+            </MusicProvider>
+          </SelectedSongProvider>
         </div>
-      </MusicProvider>
+      </SearchProvider>
     </QueryClientProvider>
   );
 }
