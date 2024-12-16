@@ -16,7 +16,7 @@ export const transformTrack = (apiResponse: TrackApiResponse): Track => ({
   album: {
     title: apiResponse.album.title,
     cover: apiResponse.album.cover_medium,
-    cover_small: apiResponse.album.cover_small
+    cover_small: apiResponse.album.cover_small,
   },
   preview: apiResponse.preview,
 });

@@ -20,7 +20,7 @@ export const transformSearchResponse = (
     album: {
       title: apiTrack.album.title,
       cover: apiTrack.album.cover,
-      cover_small: apiTrack.album.cover_small
+      cover_small: apiTrack.album.cover_small,
     },
   }));
 };

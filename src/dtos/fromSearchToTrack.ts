@@ -1,4 +1,4 @@
-import {SearchTrack, Track} from "@/types/entities";
+import { SearchTrack, Track } from '@/types/entities';
 
 export const mapSearchTrackToTrack = (searchTrack: SearchTrack): Track => {
   return {
@@ -15,7 +15,7 @@ export const mapSearchTrackToTrack = (searchTrack: SearchTrack): Track => {
     album: {
       title: searchTrack.album.title,
       cover: searchTrack.album.cover,
-      cover_small: searchTrack.album.cover_small
+      cover_small: searchTrack.album.cover_small,
     },
     preview: searchTrack.preview,
     md5_image: searchTrack.md5_image,
