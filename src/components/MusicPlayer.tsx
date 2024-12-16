@@ -4,25 +4,24 @@ import ReactPlayer from 'react-player';
 import { useTrackInfo } from '@/hooks/useTrackInfo';
 import { useMusicContext } from '@/contexts/MusicContext';
 import { useSelectedSongContext } from '@/contexts/SelectedSongContext';
-import styles from '@/components/MusicPlayer.module.css';
+import * as styles from '@/components/MusicPlayer.module.css';
 
 export const MusicPlayer = () => {
-  const { closeAll, isPlayerOpen, setIsPlayerOpen } = useMusicContext();
-  const { selectedSong, selectedSongIsNew, setSelectedSongIsNew } =
-    useSelectedSongContext();
+  const { selectedSong, setSelectedSong } = useSelectedSongContext();
+  const { closeAll, isPlayerOpen, openAll } = useMusicContext();
+
   const [closing, setClosing] = useState(false);
+  const { data: trackInfo, isLoading, error } = useTrackInfo(selectedSong);
+
   useEffect(() => {
-    if (selectedSongIsNew && selectedSong) {
-      setIsPlayerOpen(true);
-      setSelectedSongIsNew(false);
+    if (selectedSong) {
+      openAll();
     }
-  }, []);
+  }, [selectedSong, setSelectedSong]);
 
   if (!selectedSong || !isPlayerOpen) {
     return null;
   }
-
-  const { data: trackInfo, isLoading, error } = useTrackInfo(selectedSong);
 
   if (isLoading) return <div>Cargando...</div>;
   if (error instanceof Error)
@@ -40,7 +39,7 @@ export const MusicPlayer = () => {
   };
 
   const modalContent = (
-    <div className={styles.overlay} onClick={handleClose}>
+    <div className={styles.overlay}>
       <div
         className={`${styles.modal} ${closing ? styles.closing : ''}`}
         onClick={e => e.stopPropagation()}
