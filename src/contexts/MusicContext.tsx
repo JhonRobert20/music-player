@@ -8,6 +8,8 @@ interface MusicContextType {
   closeAll: () => void;
   openAll: () => void;
   closeSongDetails: () => void;
+  selectedSong: number | null;
+  setSelectedSong: (selectedSong: number | null) => void;
 }
 
 const MusicContext = createContext<MusicContextType | undefined>(undefined);
@@ -17,6 +19,7 @@ export const MusicProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [isSongDetailsOpen, setIsSongDetailsOpen] = useState<boolean>(true);
   const [isPlayerOpen, setIsPlayerOpen] = useState<boolean>(true);
+  const [selectedSong, setSelectedSong] = useState<number | null>(null);
 
   const closeSongDetails = () => {
     setIsSongDetailsOpen(false);
@@ -39,9 +42,11 @@ export const MusicProvider: React.FC<{ children: ReactNode }> = ({
         isPlayerOpen,
         setIsSongDetailsOpen,
         setIsPlayerOpen,
+        selectedSong,
         closeAll,
         closeSongDetails,
         openAll,
+        setSelectedSong
       }}
     >
       {children}

@@ -15,7 +15,6 @@
 .modal {
   background-color: white;
   width: 100%;
-  max-width: 500px;
   border-radius: 16px 16px 0 0;
   padding: 1rem;
   box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.2);
@@ -38,6 +37,133 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+.modalContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trackImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.trackImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trackInfo {
+  flex: 1;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.trackInfo h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.trackInfo p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.playerWrapper {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.playProgressWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.playPauseButton {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.progressWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timeLabels {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  gap: 20px;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  outline: none;
+  border-radius: 0;
+}
+
+.volumeControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type='range'] {
+  overflow: hidden;
+  width: 80px;
+  appearance: none;
+  background-color: #9a905d;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 10px;
+  -webkit-appearance: none;
+  color: #13bba4;
+  margin-top: -1px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 10px;
+  -webkit-appearance: none;
+  height: 10px;
+  cursor: pointer;
+  background: #43e5f7;
+  box-shadow: -80px 0 0 80px #43e5f7;
+}
+
+.volumeSlider {
+  width: 100%;
+  height: 6px;
+  background: #ddd;
+  outline: none;
+  border-radius: 10px;
+}
+
+
 
 @keyframes slideUp {
   from {

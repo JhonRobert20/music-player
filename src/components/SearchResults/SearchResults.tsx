@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSearch } from '@/contexts/SearchContext';
-import { useSelectedSongContext } from '@/contexts/SelectedSongContext';
+import { useMusicContext } from '@/contexts/MusicContext';
 import { useSearchResults } from '@/hooks/useSearchResults';
 import { TrackCard } from '@/components/TrackCard/TrackCard';
 import { mapSearchTrackToTrack } from '@/dtos/fromSearchToTrack';
@@ -10,7 +10,7 @@ export const SearchResult = () => {
   const { query } = useSearch();
   const { data: results, isLoading, error } = useSearchResults(query);
 
-  const { setSelectedSong, selectedSong } = useSelectedSongContext();
+  const { setSelectedSong } = useMusicContext();
 
   if (isLoading) {
     return (
@@ -30,14 +30,11 @@ export const SearchResult = () => {
     );
   }
 
-  const gridClass = selectedSong
-    ? styles.gridWithRightSidebar
-    : styles.gridWithoutRightSidebar;
+
 
   return (
     <div style={{ padding: '1rem', borderTop: '1px solid #ccc' }}>
       <h3>Search results for: {query}</h3>
-      <div className={gridClass}>
         <div className={styles.results}>
           {results.length > 0 ? (
             results.map((result, index) => {
@@ -54,7 +51,6 @@ export const SearchResult = () => {
             <div>No results</div>
           )}
         </div>
-      </div>
     </div>
   );
 };

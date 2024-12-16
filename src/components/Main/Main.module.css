@@ -1,0 +1,32 @@
+.mainContainer {
+  display: flex;
+  padding: 1rem;
+}
+
+.leftShared {
+  width: 80%;
+}
+
+.rightShared {
+  width: 20%;
+  padding-left: 1rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.leftFull {
+  width: 100%;
+}
+.gridWithRightSidebar {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  gap: 1rem;
+  grid-template-rows: auto;
+}
+
+.gridWithoutRightSidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
