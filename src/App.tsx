@@ -5,8 +5,8 @@ import { MusicPlayer } from '@/components/MusicPlayer';
 import { MusicProvider } from '@/contexts/MusicContext';
 import { SelectedSongProvider } from '@/contexts/SelectedSongContext';
 import { SearchProvider } from '@/contexts/SearchContext';
-import { SearchResult } from '@/components/SearchResults';
-import { Navbar } from '@/components/Navbar';
+import { SearchResult } from '@/components/SearchResults/SearchResults';
+import { Navbar } from '@/components/Navbar/Navbar';
 
 const queryClient = new QueryClient();
 
