@@ -4,7 +4,7 @@ import { Track } from '@/types/entities';
 export const transformTrack = (apiResponse: TrackApiResponse): Track => ({
   title: apiResponse.title,
   duration: apiResponse.duration,
-  track_position: apiResponse.track_position,
+  md5_image: apiResponse.md5_image,
   artist: {
     name: apiResponse.artist.name,
     picture: apiResponse.artist.picture,
@@ -16,6 +16,7 @@ export const transformTrack = (apiResponse: TrackApiResponse): Track => ({
   album: {
     title: apiResponse.album.title,
     cover: apiResponse.album.cover_medium,
+    cover_small: apiResponse.album.cover_small
   },
   preview: apiResponse.preview,
 });

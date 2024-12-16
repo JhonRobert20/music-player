@@ -1,7 +1,6 @@
 export type Track = {
   title: string;
   duration: number;
-  track_position: number;
   artist: {
     name: string;
     picture: string;
@@ -13,8 +12,10 @@ export type Track = {
   album: {
     title: string;
     cover: string;
+    cover_small: string;
   };
   preview: string;
+  md5_image: string;
 };
 
 export type SearchTrack = {
@@ -25,6 +26,7 @@ export type SearchTrack = {
   rank: number;
   explicit_lyrics: boolean;
   preview: string;
+  md5_image: string;
   artist: {
     name: string;
     picture: string;
@@ -32,6 +34,7 @@ export type SearchTrack = {
   album: {
     title: string;
     cover: string;
+    cover_small: string;
   };
 };
 

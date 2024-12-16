@@ -71,6 +71,7 @@ export type SearchResponse = {
   id: number;
   readable: boolean;
   title: string;
+  md5_image: string;
   title_short: string;
   title_version: string;
   link: string;
@@ -87,6 +88,7 @@ export type SearchResponse = {
   album: {
     title: string;
     cover: string;
+    cover_small: string;
   };
   type: string;
 };
