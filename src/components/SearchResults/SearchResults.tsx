@@ -30,27 +30,25 @@ export const SearchResult = () => {
     );
   }
 
-
-
   return (
     <div style={{ padding: '1rem', borderTop: '1px solid #ccc' }}>
       <h3>Search results for: {query}</h3>
-        <div className={styles.results}>
-          {results.length > 0 ? (
-            results.map((result, index) => {
-              const track = mapSearchTrackToTrack(result);
-              return (
-                <TrackCard
-                  key={index}
-                  track={track}
-                  onClick={() => setSelectedSong(result.id)}
-                />
-              );
-            })
-          ) : (
-            <div>No results</div>
-          )}
-        </div>
+      <div className={styles.results}>
+        {results.length > 0 ? (
+          results.map((result, index) => {
+            const track = mapSearchTrackToTrack(result);
+            return (
+              <TrackCard
+                key={index}
+                track={track}
+                onClick={() => setSelectedSong(result.id)}
+              />
+            );
+          })
+        ) : (
+          <div>No results</div>
+        )}
+      </div>
     </div>
   );
 };

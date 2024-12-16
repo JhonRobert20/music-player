@@ -17,7 +17,6 @@ export default function App() {
           <MusicProvider>
             <Main />
             <MusicPlayer />
-
           </MusicProvider>
         </div>
       </SearchProvider>

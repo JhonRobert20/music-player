@@ -46,7 +46,7 @@ export const MusicProvider: React.FC<{ children: ReactNode }> = ({
         closeAll,
         closeSongDetails,
         openAll,
-        setSelectedSong
+        setSelectedSong,
       }}
     >
       {children}

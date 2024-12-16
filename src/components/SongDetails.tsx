@@ -2,7 +2,8 @@ import React from 'react';
 import { useMusicContext } from '@/contexts/MusicContext';
 
 export const SongDetails = () => {
-  const { closeSongDetails, isSongDetailsOpen, selectedSong } = useMusicContext();
+  const { closeSongDetails, isSongDetailsOpen, selectedSong } =
+    useMusicContext();
   if (!selectedSong || !isSongDetailsOpen) {
     return null;
   }

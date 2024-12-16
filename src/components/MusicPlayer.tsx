@@ -23,7 +23,12 @@ export const MusicPlayer = () => {
     }
   }, [selectedSong]);
 
-  const handleProgress = (state: { played: number; playedSeconds: number; loaded: number; loadedSeconds: number }) => {
+  const handleProgress = (state: {
+    played: number;
+    playedSeconds: number;
+    loaded: number;
+    loadedSeconds: number;
+  }) => {
     setProgress(state.played * 100);
     setCurrentTime(state.playedSeconds);
   };
@@ -63,7 +68,7 @@ export const MusicPlayer = () => {
     <div className={styles.overlay}>
       <div
         className={`${styles.modal} ${closing ? styles.closing : ''}`}
-        onClick={(e) => e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
       >
         <button className={styles.closeButton} onClick={handleClose}>
           ✖
@@ -79,26 +84,29 @@ export const MusicPlayer = () => {
           <div className={styles.playerWrapper}>
             <div className={styles.controls}>
               <div className={styles.playProgressWrapper}>
-                <button className={styles.playPauseButton} onClick={handlePlayPause}>
+                <button
+                  className={styles.playPauseButton}
+                  onClick={handlePlayPause}
+                >
                   {playing ? 'Pause' : 'Play'}
                 </button>
 
                 <div className={styles.progressWrapper}>
                   <div className={styles.timeLabels}>
-                  <span>{Math.floor(currentTime)}s</span>
+                    <span>{Math.floor(currentTime)}s</span>
 
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={progress}
-                    onChange={(e) => playerRef.current?.seekTo(Number(e.target.value) / 100)}
-                    className={styles.progressBar}
-                  />
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={progress}
+                      onChange={e =>
+                        playerRef.current?.seekTo(Number(e.target.value) / 100)
+                      }
+                      className={styles.progressBar}
+                    />
                     <span>{Math.floor(duration)}s</span>
                   </div>
-
-
                 </div>
               </div>
 
@@ -134,6 +142,6 @@ export const MusicPlayer = () => {
 
   return ReactDOM.createPortal(
     modalContent,
-    document.getElementById('modal-root') as HTMLElement
+    document.getElementById('modal-root') as HTMLElement,
   );
 };
