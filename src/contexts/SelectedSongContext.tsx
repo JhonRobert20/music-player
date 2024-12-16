@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface SelectedSongContextType {
-  selectedSong: string | null;
+  selectedSong: number | null;
   selectedSongIsNew: boolean;
-  setSelectedSong: (selectedSong: string | null) => void;
+  setSelectedSong: (selectedSong: number | null) => void;
   setSelectedSongIsNew: (selectedSongIsNew: boolean) => void;
 }
 
@@ -14,7 +14,7 @@ const SelectedSongContext = createContext<SelectedSongContextType | undefined>(
 export const SelectedSongProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [selectedSong, setSelectedSong] = useState<string | null>(null);
+  const [selectedSong, setSelectedSong] = useState<number | null>(null);
   const [selectedSongIsNew, setSelectedSongIsNew] = useState<boolean>(true);
 
   return (
