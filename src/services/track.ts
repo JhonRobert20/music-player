@@ -3,8 +3,8 @@ import { fetchFromApi } from '@/services/fetchFromApi';
 import { transformTrack } from '@/dtos/tracks';
 export const fetchTrackInfo = async ({
   queryKey,
-  signal
-}: QueryFunctionContext<[string, number|null]>) => {
+  signal,
+}: QueryFunctionContext<[string, number | null]>) => {
   const [, trackId] = queryKey;
   const endpointTrack = `track/${trackId}`;
   const apiResponse = await fetchFromApi(endpointTrack, signal);

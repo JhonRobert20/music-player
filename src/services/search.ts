@@ -4,7 +4,7 @@ import { transformSearchResponse } from '@/dtos/search';
 
 export const fetchSearchResults = async ({
   queryKey,
-  signal
+  signal,
 }: QueryFunctionContext<[string, string]>) => {
   const [, searchQuery] = queryKey;
   const endpointSearch = `search?q=${searchQuery}`;
