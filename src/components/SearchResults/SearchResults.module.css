@@ -1,0 +1,24 @@
+.gridWithRightSidebar {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  gap: 1rem;
+  grid-template-rows: auto;
+}
+
+.gridWithoutRightSidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.sidebar {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 5px;
+}

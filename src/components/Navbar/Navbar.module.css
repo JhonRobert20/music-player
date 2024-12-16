@@ -1,0 +1,47 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 100px; /* Ajusta la altura a lo que necesites */
+  border-bottom: 1px solid #ccc;
+  background-color: #fff; /* Puedes ajustar el color de fondo */
+}
+
+.logo {
+  flex: 1;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  flex: 2;
+}
+
+.searchInput {
+  margin-left: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.navLinks li {
+  font-size: 1rem;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #333;
+}
+
+.user {
+  flex: 0.5;
+}
