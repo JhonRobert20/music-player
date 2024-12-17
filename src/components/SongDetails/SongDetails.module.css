@@ -1,0 +1,33 @@
+.skeletonContainer {
+  padding: 1rem;
+}
+
+.skeleton {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.skeletonTitle {
+  height: 2rem;
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+.skeletonText {
+  height: 1rem;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.skeletonContributors {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skeletonImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
