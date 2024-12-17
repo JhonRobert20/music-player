@@ -1,0 +1,146 @@
+.overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.modal {
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: all;
+  transform: translateY(0);
+  position: relative;
+}
+
+.modalSkeleton {
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: all;
+  transform: translateY(100%);
+  animation: slideUp 0.1s ease-out forwards;
+  position: relative;
+}
+
+.modal.closing {
+  animation: slideDown 0.1s ease-out forwards;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modalContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.modalContent img {
+  max-width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+}
+
+.trackInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.trackInfo h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.trackInfo p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.playerWrapper {
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  justify-content: space-between;
+}
+
+.skeleton {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  animation: loading 1.5s infinite ease-in-out;
+}
+
+.skeletonImage {
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+  aspect-ratio: 1 / 1;
+}
+
+.skeletonText {
+  width: 100%;
+  height: 20px;
+  margin: 8px 0;
+}
+
+.skeletonTitle {
+  width: 70%;
+}
+
+.skeletonArtist {
+  width: 50%;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-color: #f0f0f0;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #f0f0f0;
+  }
+}
