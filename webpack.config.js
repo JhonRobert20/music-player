@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const DotenvPlugin = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -46,6 +47,7 @@ module.exports = {
         },
       ],
     }),
+    new DotenvPlugin(),
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
