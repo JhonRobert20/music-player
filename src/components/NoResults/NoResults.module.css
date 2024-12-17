@@ -1,0 +1,6 @@
+.noResults {
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 1rem;
+}

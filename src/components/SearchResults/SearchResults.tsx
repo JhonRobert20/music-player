@@ -1,54 +1,65 @@
 import React from 'react';
-import { useSearch } from '@/contexts/SearchContext';
 import { useMusicContext } from '@/contexts/MusicContext';
-import { useSearchResults } from '@/hooks/useSearchResults';
 import { TrackCard } from '@/components/TrackCard/TrackCard';
 import { mapSearchTrackToTrack } from '@/dtos/fromSearchToTrack';
-import * as styles from './SearchResults.module.css';
+import * as styles from '@/components/SearchResults/SearchResults.module.css';
+import { Loader } from '@/components/Loader/Loader';
+import { ErrorMessage } from '@/components/ErrorMessage/ErrorMessage';
+import { NoResults } from '@/components/NoResults/NoResults';
+import { useSearchState } from '@/hooks/useSearchState';
 
 export const SearchResult = () => {
-  const { query } = useSearch();
-  const { data: results, isLoading, error } = useSearchResults(query);
+  const {
+    query,
+    data: searchResults,
+    isLoading,
+    error,
+    hasSearched,
+  } = useSearchState();
+  const { setSelectedSong, selectedSong, toggleSongDetails, openDetails } =
+    useMusicContext();
 
-  const { setSelectedSong } = useMusicContext();
+  const handleCardClick = (id: number) => {
+    if (id === selectedSong) {
+      toggleSongDetails();
+    } else {
+      setSelectedSong(id);
+      openDetails();
+    }
+  };
 
-  if (isLoading) {
+  if (isLoading) return <Loader query={query} />;
+  if (error instanceof Error) return <ErrorMessage />;
+  if (hasSearched && !searchResults?.data?.length)
+    return <NoResults query={query} />;
+  if (!hasSearched) {
     return (
-      <div style={{ padding: '1rem' }}>
-        <h3>Loading: &lsquo;{query}&rsquo;</h3>
-      </div>
-    );
-  }
-  if (error instanceof Error) {
-    return 'error';
-  }
-  if (!results || results == undefined) {
-    return (
-      <div style={{ padding: '1rem' }}>
-        <h3>Try Searching: &lsquo;Eminem&rsquo;</h3>
-      </div>
+      <section className={styles.searchResultsSection}>
+        <h3 className={styles.searchResultsTitle}>
+          Waiting for your search....
+        </h3>
+      </section>
     );
   }
 
   return (
-    <div style={{ padding: '1rem', borderTop: '1px solid #ccc' }}>
-      <h3>Search results for: {query}</h3>
-      <div className={styles.results}>
-        {results.length > 0 ? (
-          results.map((result, index) => {
-            const track = mapSearchTrackToTrack(result);
-            return (
-              <TrackCard
-                key={index}
-                track={track}
-                onClick={() => setSelectedSong(result.id)}
-              />
-            );
-          })
-        ) : (
-          <div>No results</div>
-        )}
+    <section className={styles.searchResultsSection}>
+      <h3 className={styles.searchResultsTitle}>
+        Search results for:{' '}
+        <span className={styles.searchResultsQuery}>{query}</span>
+      </h3>
+      <div className={styles.searchResultsGrid}>
+        {searchResults?.data.map(result => {
+          const searchItem = mapSearchTrackToTrack(result);
+          return (
+            <TrackCard
+              key={result.id}
+              track={searchItem}
+              onClick={() => handleCardClick(result.id)}
+            />
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 };
