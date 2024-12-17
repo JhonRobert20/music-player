@@ -63,7 +63,6 @@
 .songDetails__artist {
   font-size: var(--font-size-default);
   margin: 0;
-
 }
 
 .songDetails__contributors_container {
@@ -108,17 +107,17 @@
   gap: 1rem;
   width: 100%;
 }
-.songDetails__contributor_info img{
-width: 50px;
-aspect-ratio: 1/1;
+.songDetails__contributor_info img {
+  width: 50px;
+  aspect-ratio: 1/1;
 }
-.songDetails__contributor_infoRole{
+.songDetails__contributor_infoRole {
   display: flex;
   flex-direction: column;
   align-items: start;
-margin: 0;
-  }
-
-  .songDetails__contributor_infoRole p{
   margin: 0;
-    }
+}
+
+.songDetails__contributor_infoRole p {
+  margin: 0;
+}

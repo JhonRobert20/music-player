@@ -1,4 +1,3 @@
-
 .main__grid_left_side {
   display: grid;
   grid-template-columns: 1fr 25vw;
@@ -23,15 +22,12 @@
   padding-top: 80px;
   padding-bottom: 200px;
   scrollbar-width: none;
-
-
 }
 
-
-.main__grid_search_results::-webkit-scrollbar, .main__grid_song_details::-webkit-scrollbar{
+.main__grid_search_results::-webkit-scrollbar,
+.main__grid_song_details::-webkit-scrollbar {
   display: none;
 }
-
 
 .main__grid_song_details {
   overflow-y: auto;
