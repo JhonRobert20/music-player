@@ -1,36 +1,69 @@
-.card {
-  width: 200px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.image {
+.track-card {
   width: 100%;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: var(--transition-speed);
+  position: relative;
+}
+
+.track-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.track-card__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
-.info {
-  padding: 1rem;
+.track-card__gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    transparent,
+    rgba(0, 0, 0, 2.1)
+  );
+  z-index: 20;
+  pointer-events: none;
 }
 
-.title {
-  font-size: 1.1rem;
+.track-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1rem 1.5rem 2rem;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  z-index: 30;
+}
+
+.track-card__title {
+  font-size: var(--font-size-large);
   font-weight: bold;
-  margin: 0.5rem 0;
+  margin: 0 0 0.5rem;
 }
 
-.artist,
-.album {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 0.3rem 0;
+.track-card__artist,
+.track-card__album {
+  font-size: var(--font-size-default);
+  color: #ccc;
+  margin: 0.25rem 0;
+}
+
+.track-card__title:hover {
+  color: var(--color-primary);
 }

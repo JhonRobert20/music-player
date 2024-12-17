@@ -11,12 +11,18 @@ export const TrackCard: React.FC<TrackCardProps> = ({ track, onClick }) => {
   const { title, artist, album } = track;
 
   return (
-    <div className={styles.card} onClick={onClick}>
-      <img src={album.cover} alt={title} className={styles.image} />
-      <div className={styles.info}>
-        <h4 className={styles.title}>{title}</h4>
-        <p className={styles.artist}>{artist.name}</p>
-        <p className={styles.album}>{album.title}</p>
+    <div className={styles['track-card']} onClick={onClick}>
+      <img
+        className={styles['track-card__image']}
+        src={album.cover_xl}
+        alt={`Cover of ${title} by ${artist.name}`}
+      />
+      <div className={styles['track-card__gradient']} />
+
+      <div className={styles['track-card__info']}>
+        <h4 className={styles['track-card__title']}>{title}</h4>
+        <p className={styles['track-card__artist']}>{artist.name}</p>
+        <p className={styles['track-card__album']}>{album.title}</p>
       </div>
     </div>
   );
