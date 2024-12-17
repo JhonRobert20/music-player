@@ -1,19 +1,19 @@
-.skeletonContainer {
+.songDetails__skeleton_container {
   padding: 1rem;
 }
 
-.skeleton {
-  background-color: #ccc;
+.songDetails__skeleton {
+  background-color: var(--color-skeleton);
   border-radius: 4px;
 }
 
-.skeletonTitle {
+.songDetails__skeleton_title {
   height: 2rem;
   width: 50%;
   margin-bottom: 1rem;
 }
 
-.skeletonText {
+.songDetails__skeleton_text {
   height: 1rem;
   width: 80%;
   margin-bottom: 1rem;
@@ -25,9 +25,100 @@
   margin-bottom: 1rem;
 }
 
-.skeletonImage {
+.songDetails__skeleton_image {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 1rem;
 }
+
+.songDetails {
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-secundary);
+  width: 22vw; /* Ancho fijo */
+  padding: 1.5rem;
+  height: 100%; /* Ocupa toda la altura disponible */
+  overflow-y: auto; /* Scroll vertical */
+  border-left: 1px solid #ddd;
+  border-radius: 0 12px 12px 0;
+}
+
+.songDetails img {
+  border-radius: 12px;
+  width: 100%;
+}
+
+.songDetails__album {
+  font-size: var(--font-size-extra_large);
+}
+
+.songDetails__title {
+  font-size: var(--font-size-extra_large);
+  font-weight: bold;
+  margin: 1rem 0 0.25rem;
+}
+
+.songDetails__artist {
+  font-size: var(--font-size-default);
+  margin: 0;
+
+}
+
+.songDetails__contributors_container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--color-skeleton);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.songDetails__contributors_title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.songDetails__contributors_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.songDetails__contributor_card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  background-color: var(--color-secundary);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.songDetails__contributor_card:hover {
+  transform: translateY(-3px);
+}
+
+.songDetails__contributor_info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.songDetails__contributor_info img{
+width: 50px;
+aspect-ratio: 1/1;
+}
+.songDetails__contributor_infoRole{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+margin: 0;
+  }
+
+  .songDetails__contributor_infoRole p{
+  margin: 0;
+    }

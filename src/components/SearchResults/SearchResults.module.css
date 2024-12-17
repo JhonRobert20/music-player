@@ -1,19 +1,19 @@
-.searchResultsSection {
+.searchResults__section {
   padding: 1rem;
 }
 
-.searchResultsTitle {
+.searchResults__title {
   font-size: var(--font-size-extra_large);
   font-weight: 200;
   margin-bottom: 1rem;
 }
 
-.searchResultsQuery {
+.searchResults__query {
   font-weight: bold;
   text-transform: capitalize;
 }
 
-.searchResultsGrid {
+.searchResults__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;

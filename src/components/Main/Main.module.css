@@ -1,33 +1,46 @@
-.mainContainer {
-  display: flex;
-  padding: 1rem;
-}
 
-.leftShared {
-  width: 80%;
-}
-
-.rightShared {
-  width: 20%;
-  padding-left: 1rem;
-  background-color: #f8f8f8;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.leftFull {
-  width: 100%;
-}
-.gridWithRightSidebar {
+.main__grid_left_side {
   display: grid;
-  grid-template-columns: 80% 20%;
-  gap: 1rem;
-  grid-template-rows: auto;
-  width: calc(100% - 1rem);
+  grid-template-columns: 1fr 25vw;
+  height: calc(100vh - 80px);
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-.gridWithoutRightSidebar {
+.main__grid_right_side {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  height: calc(100vh - 80px);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.main__grid_search_results {
+  overflow-y: auto;
+  height: 100%;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding-top: 80px;
+  padding-bottom: 200px;
+  scrollbar-width: none;
+
+
+}
+
+
+.main__grid_search_results::-webkit-scrollbar, .main__grid_song_details::-webkit-scrollbar{
+  display: none;
+}
+
+
+.main__grid_song_details {
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: 100%;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.2);
+  padding-top: 60px;
+  padding-bottom: 200px;
 }

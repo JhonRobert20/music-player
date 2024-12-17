@@ -45,7 +45,7 @@
   justify-content: space-between;
   width: 100%;
   margin: 1rem 1.5rem 2rem;
-  color: #fff;
+  color: var(--color-secundary);
   position: absolute;
   bottom: 0;
   z-index: 30;
@@ -60,7 +60,7 @@
 .track-card__artist,
 .track-card__album {
   font-size: var(--font-size-default);
-  color: #ccc;
+  color: var(--color-secundary);
   margin: 0.25rem 0;
 }
 
