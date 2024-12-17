@@ -16,8 +16,10 @@ export const mapSearchTrackToTrack = (searchTrack: SearchTrack): Track => {
       title: searchTrack.album.title,
       cover: searchTrack.album.cover,
       cover_small: searchTrack.album.cover_small,
+      cover_xl: searchTrack.album.cover_xl,
     },
     preview: searchTrack.preview,
     md5_image: searchTrack.md5_image,
+    contributors: [],
   };
 };
