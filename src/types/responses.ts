@@ -89,10 +89,13 @@ export type SearchResponse = {
     title: string;
     cover: string;
     cover_small: string;
+    cover_xl: string;
   };
   type: string;
 };
 
 export type SearchApiResponse = {
   data: SearchResponse[];
+  total: number;
+  next: string;
 };
