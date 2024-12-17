@@ -34,8 +34,8 @@ export const SearchResult = () => {
     return <NoResults query={query} />;
   if (!hasSearched) {
     return (
-      <section className={styles.searchResultsSection}>
-        <h3 className={styles.searchResultsTitle}>
+      <section className={styles.searchResults__section}>
+        <h3 className={styles.searchResults__title}>
           Waiting for your search....
         </h3>
       </section>
@@ -43,12 +43,12 @@ export const SearchResult = () => {
   }
 
   return (
-    <section className={styles.searchResultsSection}>
-      <h3 className={styles.searchResultsTitle}>
+    <section className={styles.searchResults__section}>
+      <h3 className={styles.searchResults__title}>
         Search results for:{' '}
-        <span className={styles.searchResultsQuery}>{query}</span>
+        <span className={styles.searchResults__query}>{query}</span>
       </h3>
-      <div className={styles.searchResultsGrid}>
+      <div className={styles.searchResults__grid}>
         {searchResults?.data.map(result => {
           const searchItem = mapSearchTrackToTrack(result);
           return (
