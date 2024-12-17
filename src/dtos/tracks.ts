@@ -5,6 +5,7 @@ export const transformTrack = (apiResponse: TrackApiResponse): Track => ({
   title: apiResponse.title,
   duration: apiResponse.duration,
   md5_image: apiResponse.md5_image,
+  contributors: apiResponse.contributors,
   artist: {
     name: apiResponse.artist.name,
     picture: apiResponse.artist.picture,
@@ -17,6 +18,7 @@ export const transformTrack = (apiResponse: TrackApiResponse): Track => ({
     title: apiResponse.album.title,
     cover: apiResponse.album.cover_medium,
     cover_small: apiResponse.album.cover_small,
+    cover_xl: apiResponse.album.cover_xl,
   },
   preview: apiResponse.preview,
 });

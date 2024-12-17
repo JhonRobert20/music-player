@@ -7,7 +7,7 @@ export const fetchSearchResults = async ({
   signal,
 }: QueryFunctionContext<[string, string]>) => {
   const [, searchQuery] = queryKey;
-  const endpointSearch = `search?q=${searchQuery}`;
+  const endpointSearch = `search?q=${searchQuery}&redirect_uri=http%3A%2F%2Fguardian.mashape.com%2Fcallback&index=0`;
   const apiResponse = await fetchFromApi(endpointSearch, signal);
   return transformSearchResponse(apiResponse);
 };
